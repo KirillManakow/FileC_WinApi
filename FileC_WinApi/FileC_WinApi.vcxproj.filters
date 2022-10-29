@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FileC_WinApi.cpp">
+    <ClCompile Include="FileC_WinApi.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
