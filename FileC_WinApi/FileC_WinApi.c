@@ -3,26 +3,12 @@
 
 int WINAPI WinMain(HINSTANCE hlnstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-	int message = MessageBox(NULL, L"Îøèáêà", L"APP", MB_YESNOCANCEL | MB_ICONQUESTION);
+	DWORD d;
+	LPCSTR str = calloc(100, 1);
 
-	switch (message)
-	{
-	case IDYES:
-	{
-		MessageBox(NULL, L"Âû íàæàëè íà ÄÀ", L"APP", NULL);
-		break;
-	}
-	case IDNO:
-	{
-		MessageBox(NULL, L"Âû íàæàëè íà ÍÅÒ", L"APP", NULL);
-		break;
-	}
-	case IDCANCEL:
-	{
-		MessageBox(NULL, L"Ïðîãðàììà çàêðûòà", L"APP", NULL);
-		break;
-	}
+	HANDLE FileHandle  = CreateFile(L"OTV.txt",	GENERIC_READ | GENERIC_WRITE,FILE_SHARE_WRITE | FILE_SHARE_READ, NULL, CREATE_NEW,		FILE_ATTRIBUTE_NORMAL | FILE_FLAG_OVERLAPPED, 0);
 
-	}
-	return 0;
+	HANDLE 	FileHandleKoef = CreateFile(L"Koef.txt",GENERIC_READ | GENERIC_WRITE,FILE_SHARE_WRITE | FILE_SHARE_READ, NULL, CREATE_NEW,		FILE_ATTRIBUTE_NORMAL | FILE_FLAG_OVERLAPPED, 0);
+
+	ReadFile(FileHandleKoef, str, 100, &d, NULL);
 }
